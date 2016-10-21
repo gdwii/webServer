@@ -2,7 +2,6 @@ package com.gdwii.authentication;
 
 import java.io.IOException;
 import java.util.Base64;
-import java.util.Enumeration;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,13 +14,6 @@ public class AuthenticationTest extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setContentType("text/html; charset=utf-8");
-		System.out.println("=================header===========");
-		Enumeration<String> headerNames = req.getHeaderNames();
-		while(headerNames.hasMoreElements()){
-			String name = headerNames.nextElement();
-			System.out.println(name + ":" + req.getHeader(name));
-		}
-		System.out.println("=================header===========");
 		
 		String authorization = req.getHeader("Authorization");
 		if(authorization == null || authorization.length() == 0){
